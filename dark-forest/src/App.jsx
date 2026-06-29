@@ -9,7 +9,7 @@ import CardsPlayedDisplay from './components/CardsPlayedDisplay'
 import VoteResultsDisplay from './components/VoteResultsDisplay'
 
 function App() {
-  const [serverIp, setServerIp] = useState('localhost')
+  const [serverIp, setServerIp] = useState('snide-alike-transform.ngrok-free.dev')
   const [playerName, setPlayerName] = useState('')
   const [connected, setConnected] = useState(false)
   const [ws, setWs] = useState(null)
