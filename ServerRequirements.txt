@@ -1,0 +1,25 @@
+The client will create a websocket connection to the server.
+The server must be able to send and receive all messages listed below.
+Clients will connect with a unique ID using "LookingForGame".
+The server will send "PlayerJoined:name" when a player joins, and keep a list of joined players.
+When each player has sent ReadyToStart and there are at least 4 players, the server will send a "RoleGiven" message to each player.
+
+
+
+Types of messages the server can send:
+- "PlayerJoined:name"
+- "RoleGiven:role,card1,card2,card3,card4" // always exactly 4 cards. All values are strings.
+- "CardsPlayed:card1,card2,card3..." // 1 card per player. All values are strings. If a card's value is "silence" or "exterminate", it will be followed by a player string, a role string, and a boolean for whether it succeeded
+- "CardPlayStart"
+- "VoteStart"
+- "VotesCast:yesVotes,noVotes"
+- "CardSources:player1,card1,player2,card2,..." // 1 card per player. All values are strings.
+- "FailSafePressed"
+- "GameEnd:nuked,alienAlignment,player1,player2..." // list all winning players. All values are strings.
+
+Types of messages the server can receive:
+- "LookingForGame:name"
+- "ReadyToStart"
+- "CardPlayed:card,role,player" // role and player are optional. All values are strings.
+- "Vote:yes|no"
+- "PressFailSafe"
