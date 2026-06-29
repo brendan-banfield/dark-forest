@@ -52,10 +52,10 @@ function App() {
 
   const connect = useCallback(() => {
     if (!playerName || !serverIp) return
-    let webSocketUrl = `ws://${serverIp}`
+    let webSocketUrl = `wss://${serverIp}`
     if (serverIp === 'localhost') {
       // port is not needed if using port forwarding for global access
-      webSocketUrl = 'ws://localhost:8765'
+      webSocketUrl = 'wss://localhost:8765'
     }
     console.log('Connecting to', webSocketUrl)
     const websocket = new WebSocket(webSocketUrl)
